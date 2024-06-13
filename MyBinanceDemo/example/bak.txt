@@ -1,0 +1,12 @@
+import pandas as pd
+
+# 假设你有一个二维列表
+data = [[1, 6], [2, 7], [3, 8], [4, 9], [5, 10]]
+
+# 将列表整合成DataFrame，并设置列名为'pd1'和'pd2'
+pd_df = pd.DataFrame(data, columns=['pd1', 'pd2'])
+
+print(pd_df)
+
+
+https://juejin.cn/post/7314718321970085897
