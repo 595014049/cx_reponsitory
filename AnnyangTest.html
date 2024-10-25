@@ -1,0 +1,35 @@
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Annyang 持续语音识别</title>  
+</head>  
+<body>  
+    <h1>持续语音识别示例</h1>  
+    <p>说一些话，我们将持续监听并显示在下方：</p>  
+    <div id="output">语音文本将展示在这里。</div>  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>  
+    <script>  
+        if (annyang) {  
+            // 设置中文（普通话）  
+            annyang.setLanguage('zh-CN');  
+
+            // 定义命令来捕捉任何语音输入  
+            var commands = {  
+                '*text': function(spokenText) {  
+                    document.getElementById('output').textContent = spokenText;  
+                }  
+            };  
+
+            // 将命令添加到 annyang  
+            annyang.addCommands(commands);  
+
+            // 启用 annyang 处理语音输入  
+            annyang.start({ autoRestart: true, continuous: true });  
+        } else {  
+            alert('您的浏览器不支持语音识别功能，请使用支持 Web Speech API 的现代浏览器。');  
+        }  
+    </script>  
+</body>  
+</html>
